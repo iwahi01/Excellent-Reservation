@@ -1,0 +1,8 @@
+{
+    "name": "iwahi01/Excellent-Reservation",
+    "description": "For Excellent-Reservation Composer",
+    "type": "project",
+    "require": {
+      "appserver-io/http": "1.1.7"
+    }
+}
