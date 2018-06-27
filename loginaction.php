@@ -12,7 +12,6 @@ $con = mysqli_connect(HOST, USER, PWD);
 if (!$con) {
 	exit('データベースに接続できませんでした。<br />');
 }
-
 $result = mysqli_select_db($con,'exdb');
 if (!$result) {
 	exit('データベースを選択できませんでした。<br />');
@@ -21,13 +20,9 @@ $result = mysqli_query($con,'SET NAMES utf8' );
 if (!$result) {
 	exit('文字コードを指定できませんでした。<br />');
 }
-
-$stmt=mysqli_prepare($con,'select lastname,firstname from members where userid=? and password=?');
-mysqli_stmt_bind_param($stmt,'ss',$_POST["userid"],$_POST["password"]);
-mysqli_stmt_execute($stmt);
-mysqli_stmt_bind_result($stmt,$data["lastname"],$data["firstname"]);
-
-if (mysqli_stmt_fetch($stmt)) {
+$personal_sql='select * from members where userid="'.$_POST["userid"].'" and password="'.$_POST["password"].'"';
+$result = mysqli_query($con,$personal_sql);
+if ($data = mysqli_fetch_array($result)) {
 	echo '<form id="standard" action="referinfo.php" method="post">';
 	echo '<ul>';
 	echo '<li>';
@@ -39,9 +34,8 @@ if (mysqli_stmt_fetch($stmt)) {
 	echo '</li>';
 	echo '<li>';
 	echo '<center>';
-	echo '<input type="hidden" name="userid" value="'.htmlspecialchars($_POST["userid"],ENT_QUOTES,'UTF-8').'" />';
+	echo '<input type="hidden" name="userid" value="'.$_POST["userid"].'" />';
 	echo '<input type="submit" name="submit" value="個人情報照会" />';
-	echo '<input id="reserve" type="submit" name="submit" value="予約情報照会" /><br />';
 	echo '</li>';
 	echo '<li>';
 	echo ' <center>接続先(デバッグ用)<br /></center>';
@@ -62,7 +56,6 @@ if (mysqli_stmt_fetch($stmt)) {
 	echo '<li>';
 	echo '<center><input type="button" value="戻る" onClick="history.back();"></center>';
 }
-
 echo '</li>';
 echo '</ul>';
 echo '</form>';
