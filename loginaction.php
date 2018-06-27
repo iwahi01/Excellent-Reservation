@@ -2,7 +2,7 @@
 echo '<html>';
 echo '<head>';
 echo '<meta http-equiv="Content-Type" content="text/html; charset="utf-8" />';
-echo '<link rel="stylesheet" type="text/css" href="gonomiya.css" />';
+echo '<link rel="stylesheet" type="text/css" href="gonomiya.css"/>';
 echo '<title>グローバル鉄道オンライン予約 Excellent予約トップ</title>';
 echo '<script type="text/javascript" id="ca_eum_ba_ext" src="http://iwahi01-centos7.ca.com:9080/mdo/v1/sdks/browser/BAExt.js"></script>';
 echo '<script type="text/javascript" id="ca_eum_ba" agent=browser src="http://iwahi01-centos7.ca.com:9080/mdo/v1/sdks/browser/BA.js" data-profileUrl="http://iwahi01-centos7.ca.com:7081/api/1/urn:ca:tenantId:BTA-USERSTORE/urn:ca:appId:%E3%82%A8%E3%82%AF%E3%82%BB%E3%83%AC%E3%83%B3%E3%83%88%E4%BA%88%E7%B4%84/profile?agent=browser" data-tenantID="BTA-USERSTORE" data-appID="エクセレント予約" data-appKey="1af905d0-1daf-11e8-a2f8-9761fa1c39f9" ></script>';
